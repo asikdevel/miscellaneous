@@ -1,5 +1,5 @@
 ## Minimize Connection to MongoDB using Iptables
-```
+```bash
 iptables -A INPUT -p tcp -s OFFICE_PUBLIC_IP --dport LOCAL_MONGODB_PORT -j ACCEPT
 iptables -A INPUT -p tcp -s 0.0.0.0/0 --dport LOCAL_MONGODB_PORT -j DROP
 iptables -I INPUT -p tcp -s 127.0.0.1 --dport LOCAL_MONGODB_PORT -j ACCEPT
