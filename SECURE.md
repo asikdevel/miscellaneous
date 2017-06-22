@@ -1,5 +1,5 @@
 ## Minimize Connection to MongoDB using Iptables
-```bash
+```
 iptables -A INPUT -p tcp -s OFFICE_PUBLIC_IP --dport LOCAL_MONGODB_PORT -j ACCEPT
 iptables -A INPUT -p tcp -s 0.0.0.0/0 --dport LOCAL_MONGODB_PORT -j DROP
 iptables -I INPUT -p tcp -s 127.0.0.1 --dport LOCAL_MONGODB_PORT -j ACCEPT
@@ -7,6 +7,7 @@ iptables -I INPUT -p tcp -s 127.0.0.1 --dport LOCAL_MONGODB_PORT -j ACCEPT
 #allow connection from other server to backup database
 iptables -I INPUT -p tcp -s STORAGE_IP --dport LOCAL_MONGODB_PORT -j ACCEPT
 ```
+> [Reload iptables rules after reboot](https://raymii.org/s/tutorials/Restore-iptables-rules-after-a-reboot-on-debian.html).
 
 ## Setup Fail2Ban
 Goto [here](https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-debian-7).
